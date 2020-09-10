@@ -22,7 +22,7 @@ module.exports.signIn = function (req, res) {
 
 // get the sign up data
 module.exports.create = function(req, res){
-  if (req.body.password != req.body.confirm_password){
+  if (req.body.password != req.body.Confirm_password){
       return res.redirect('back');
   }
   
@@ -43,4 +43,7 @@ module.exports.create = function(req, res){
 }
 
 // sing in create a sessition for the user
-module.exports.createSesition = function (req, res) {};
+module.exports.createSesition = function (req, res) {
+
+  return res.redirect('/');
+};
