@@ -14,7 +14,7 @@ passport.use(
       User.findOne({ email: email }, function (err, user) {
         if (err) {
           console.log("Error in finding user-->Passport");
-          return done(err);
+          return done(err); 
         }
         if (!user || user.password != password) {
           console.log("Invalid Username Password");
@@ -61,7 +61,8 @@ passport.checkAuthentication=function(req,res,next){
 
 passport.setAuthenticatedUser=function(req,res,next){
   if(req.isAuthenticated()){
-    // req.user contains the current
+    // req.user contains the current signed in user from the session cookie and we are just sending this to the local
+    //for the views
     res.locals.user=req.user;
   }
   next();
